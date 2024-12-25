@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory game</title>
+    <script src="script.js" defer></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        font-family: sans-serif;
+      }
+      h1 {
+        position: absolute;
+        top: 25px;
+        left: 32px;
+        color: white;
+        text-shadow: 0 0 10px yellow;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background: rgb(36, 36, 36);
+      }
+      main {
+        border-radius: 10px;
+        padding: 20px;
+        width: 539px;
+        height: 84%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        font-weight: bold;
+      }
+      .box {
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        perspective: 1588px;
+        background: transparent;
+        align-content: center;
+        position: relative;
+        border-radius: 10px;
+        color: black;
+      }
+
+      .rotate {
+        transform: rotateY(180deg);
+      }
+      .sake {
+        animation: sake 0.3s 1 0.5s ease-in alternate;
+      }
+      @keyframes sake {
+        0% {
+          transform: translateX(-15px);
+        }
+        50% {
+          transform: translateX(15px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+      .inputs {
+        display: flex;
+        gap: 10px;
+      }
+      select,
+      button {
+        font-size: 18px !important;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      button {
+        cursor: pointer;
+      }
+      .rot {
+        position: absolute;
+        border-radius: 10px;
+        font-size: 20px;
+
+        transition: all 0.4s ease;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .rot:last-child {
+        background: #bf008f;
+        backface-visibility: hidden;
+      }
+      .rot:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: yellow;
+      }
+      i {
+        font-style: normal;
+        transform: rotateY(180deg);
+        font-style: normal;
+        transform: rotateY(180deg);
+        font-size: 45px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Point <span>0</span></h1>
+    <main></main>
+    <div class="inputs">
+      <select id="selection">
+        <option selected value="2">2</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+  </body>
+</html>
